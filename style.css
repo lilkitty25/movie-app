@@ -1,0 +1,12 @@
+body {
+    background-color: white;
+    color: black;
+}
+.bg-dark {
+    background-color: #343a40;
+    color: white;
+}
+.bg-light {
+    background-color: white;
+    color: black;
+}
