@@ -9,19 +9,25 @@ async function fetchUpcomingMovies() {
 async function displayUpcomingMovies() {
     const movies = await fetchUpcomingMovies();
     const moviesContainer = document.getElementById('movies');
-    movies.forEach(movie => {
+    const carouselInner = document.querySelector('.carousel-inner');
+
+    movies.forEach((movie, index) => {
+        // Tarjetas
         const movieElement = document.createElement('div');
         movieElement.className = 'col-md-4 mb-4';
         movieElement.innerHTML = `<div class="card h-100">
-            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="card-img-top" alt="${movie.title}">
+            <div class="image-container">
+                <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="card-img-top" alt="${movie.title}">
+                <div class="overlay">
+                    <p class="card-text">${movie.overview}</p>
+                </div>
+            </div>
             <div class="card-body">
                 <h5 class="card-title">${movie.title}</h5>
-                <p class="card-text">Release Date: ${movie.release_date}</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
+                <a href="https://www.themoviedb.org/movie/${movie.id}" class="btn btn-danger" target="_blank">Ver Más Info</a>
             </div>
         </div>`;
+
         moviesContainer.appendChild(movieElement);
     });
 }

@@ -30,7 +30,14 @@
         <button id="toggle-dark-mode" class="btn btn-outline-light mt-2">Modo Oscuro</button>
     </header>
     <div class="container mt-5">
-        <div id="movies" class="row"></div>
+        <div id="movies" class="row">
+            <div class="image-container">
+                <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="card-img-top" alt="${movie.title}">
+                <div class="overlay">
+                    <p class="card-text">${movie.overview}</p>
+                </div>
+            </div>
+        </div>
     </div>
     <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2025 Tu Nombre. Todos los derechos reservados.</p>

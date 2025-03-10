@@ -30,3 +30,54 @@ h1 {
     background-color: #444;
     color: #ff0000;
 }
+.card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: filter 0.3s ease;
+}
+.card-body {
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+}
+.card-text {
+    display: none;
+}
+.card:hover .card-text {
+    display: block;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+.image-container {
+    position: relative;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.image-container:hover .card-img-top {
+    filter: blur(2px);
+}
+.image-container:hover .overlay {
+    opacity: 1;
+}
