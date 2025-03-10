@@ -24,6 +24,7 @@ async function displayUpcomingMovies() {
             </div>
             <div class="card-body">
                 <h5 class="card-title">${movie.title}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Fecha de Estreno: ${movie.release_date}</h6>
                 <a href="https://www.themoviedb.org/movie/${movie.id}" class="btn btn-danger" target="_blank">Ver Más Info</a>
             </div>
         </div>`;
