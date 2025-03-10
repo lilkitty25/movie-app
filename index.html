@@ -9,10 +9,32 @@
     <title>Vite App</title>
   </head>
   <body>
+    <header class="bg-dark text-white text-center py-3">
+        <img src="path/to/logo.png" alt="Logo" class="logo">
+        <h1>Próximos Estrenos de Películas</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link text-white btn btn-outline-danger" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white btn btn-outline-danger" href="#">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white btn btn-outline-danger" href="#">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <button id="toggle-dark-mode" class="btn btn-outline-light mt-2">Modo Oscuro</button>
+    </header>
     <div class="container mt-5">
-        <h1 class="text-center">Próximos Estrenos de Películas</h1>
         <div id="movies" class="row"></div>
     </div>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Tu Nombre. Todos los derechos reservados.</p>
+    </footer>
     <script src="main.js"></script>
   </body>
 </html>

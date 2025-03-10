@@ -27,3 +27,24 @@ async function displayUpcomingMovies() {
 }
 
 document.addEventListener('DOMContentLoaded', displayUpcomingMovies);
+
+document.getElementById('toggle-dark-mode').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    document.querySelector('.container').classList.toggle('dark-mode');
+    document.querySelector('h1').classList.toggle('dark-mode');
+    document.querySelectorAll('.card').forEach(card => {
+        card.classList.toggle('dark-mode');
+    });
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+        document.querySelector('.container').classList.add('dark-mode');
+        document.querySelector('h1').classList.add('dark-mode');
+        document.querySelectorAll('.card').forEach(card => {
+            card.classList.add('dark-mode');
+        });
+    }
+});
