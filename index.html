@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>movie-app</title>
   </head>
   <body>
-    <header class="bg-dark text-white d-flex justify-content-center align-items-center py-3 w-100 mx-3">
+    <header class="bg-dark text-white d-flex justify-content-center align-items-center py-3 w-100">
         <img src="/public/logo.png" alt="Logo" class="logo me-3" style="width: 100px; height: auto;">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -26,66 +26,103 @@
                 </ul>
             </div>
         </nav>
-        <button id="toggle-light-mode" class="btn btn-outline-light mt-2 ms-2" style="padding: 0.1rem 0.2rem; border: none; background: transparent;">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="32" height="32" viewBox="0 0 256 256" xml:space="preserve">
-                <defs>
-                </defs>
-                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform="translate(0 -2.842170943040401e-14) scale(2.81 2.81)" >
-                    <path d="M 45 90 C 20.187 90 0 69.814 0 45 C 0 20.187 20.187 0 45 0 c 24.814 0 45 20.187 45 45 C 90 69.814 69.814 90 45 90 z M 45 5.625 C 23.289 5.625 5.625 23.289 5.625 45 c 0 21.712 17.664 39.375 39.375 39.375 c 21.712 0 39.375 -17.663 39.375 -39.375 C 84.375 23.289 66.712 5.625 45 5.625 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                </g>
-                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(46.17984832069338 46.17984832069335) scale(1.82 1.82)" >
-                    <path d="M 45 71.188 c -14.44 0 -26.188 -11.748 -26.188 -26.188 c 0 -14.44 11.748 -26.188 26.188 -26.188 c 14.439 0 26.188 11.748 26.188 26.188 c 0 4.725 -1.272 9.355 -3.679 13.392 C 62.804 66.284 54.179 71.188 45 71.188 z M 45 22.813 c -12.234 0 -22.188 9.953 -22.188 22.188 S 32.766 67.188 45 67.188 c 7.777 0 15.086 -4.155 19.073 -10.845 c 2.037 -3.417 3.114 -7.339 3.114 -11.343 C 67.188 32.766 57.234 22.813 45 22.813 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                </g>
+        <button id="theme-toggle" class="btn btn-outline-light mt-2 ms-2" style="padding: 0.1rem 0.2rem; border: none; background: transparent;">
+            <!-- Sun icon (light mode) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="theme-icon theme-icon-light">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
             </svg>
-        </button>
-        <button id="toggle-dark-mode" class="btn btn-outline-light mt-2 ms-2" style="padding: 0.1rem 0.2rem; border: none; background: transparent;">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="32" height="32" viewBox="0 0 256 256" xml:space="preserve">
-                <defs>
-                </defs>
-                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(0 -2.842170943040401e-14) scale(2.81 2.81)" >
-                    <path d="M 45 90 C 20.187 90 0 69.814 0 45 C 0 20.187 20.187 0 45 0 c 24.814 0 45 20.187 45 45 C 90 69.814 69.814 90 45 90 z M 45 5.625 C 23.289 5.625 5.625 23.289 5.625 45 c 0 21.712 17.664 39.375 39.375 39.375 c 21.712 0 39.375 -17.663 39.375 -39.375 C 84.375 23.289 66.712 5.625 45 5.625 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                </g>
-                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(46.17984832069338 46.17984832069335) scale(1.82 1.82)" >
-                    <path d="M 87.823 60.7 c -0.463 -0.423 -1.142 -0.506 -1.695 -0.214 c -15.834 8.398 -35.266 2.812 -44.232 -12.718 c -8.966 -15.53 -4.09 -35.149 11.101 -44.665 c 0.531 -0.332 0.796 -0.963 0.661 -1.574 c -0.134 -0.612 -0.638 -1.074 -1.259 -1.153 c -9.843 -1.265 -19.59 0.692 -28.193 5.66 C 13.8 12.041 6.356 21.743 3.246 33.35 S 1.732 57.08 7.741 67.487 c 6.008 10.407 15.709 17.851 27.316 20.961 C 38.933 89.486 42.866 90 46.774 90 c 7.795 0 15.489 -2.044 22.42 -6.046 c 8.601 -4.966 15.171 -12.43 18.997 -21.586 C 88.433 61.79 88.285 61.123 87.823 60.7 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                </g>
+            <!-- Moon icon (dark mode) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="theme-icon theme-icon-dark" style="display: none;">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
         </button>
     </header>
     <div class="container mt-5">
-        <div id="movies" class="row">
-            <div class="image-container">
-                <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="card-img-top" alt="${movie.title}">
-                <div class="overlay">
-                    <p class="card-text">${movie.overview}</p>
+        <!-- Sección de filtros -->
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0">Filtros de Películas</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-2">
+                                <label for="search-title" class="form-label">Buscar por título:</label>
+                                <input type="text" id="search-title" class="form-control" placeholder="Escribe un título...">
+                            </div>
+                            <div class="col-md-4 mb-2 date-filter-container">
+                                <label for="date-filter-btn" class="form-label">Filtrar por fecha:</label>
+                                <div class="custom-date-dropdown">
+                                    <button class="btn date-filter-btn" type="button" id="date-filter-btn">
+                                        Seleccionar filtro de fecha
+                                    </button>
+                                    <!-- Dropdown implementado como un modal -->
+                                    <div id="date-dropdown-menu" style="display: none;">
+                                        <a class="dropdown-item" href="#" data-value="">Todas las fechas</a>
+                                        <a class="dropdown-item" href="#" data-value="upcoming">Próximos estrenos</a>
+                                        <a class="dropdown-item" href="#" data-value="this-month">Este mes</a>
+                                        <a class="dropdown-item" href="#" data-value="next-month">Mes siguiente</a>
+                                        <a class="dropdown-item" href="#" data-value="this-year">Este año</a>
+                                    </div>
+                                    <input type="hidden" id="release-date-filter" value="">
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-2 sort-filter-container">
+                                <label for="sort-by-btn" class="form-label">Ordenar por:</label>
+                                <div class="custom-sort-dropdown">
+                                    <button class="btn sort-filter-btn" type="button" id="sort-by-btn">
+                                        Fecha (Más próxima)
+                                    </button>
+                                    <!-- Dropdown implementado como un modal -->
+                                    <div id="sort-dropdown-menu" style="display: none;">
+                                        <a class="dropdown-item" href="#" data-value="date-asc">Fecha (Más próxima)</a>
+                                        <a class="dropdown-item" href="#" data-value="date-desc">Fecha (Más lejana)</a>
+                                        <a class="dropdown-item" href="#" data-value="title-asc">Título (A-Z)</a>
+                                        <a class="dropdown-item" href="#" data-value="title-desc">Título (Z-A)</a>
+                                        <a class="dropdown-item" href="#" data-value="rating-desc">Puntuación (Mayor)</a>
+                                        <a class="dropdown-item" href="#" data-value="rating-asc">Puntuación (Menor)</a>
+                                    </div>
+                                    <input type="hidden" id="sort-by" value="date-asc">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <button id="apply-filters" class="btn btn-primary">Aplicar Filtros</button>
+                                <button id="clear-filters" class="btn btn-secondary ms-2">Limpiar Filtros</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Contador de resultados -->
+        <div id="results-count" class="alert alert-info mb-3">
+            Mostrando todas las películas
+        </div>
+        
+        <!-- Listado de películas -->
+        <div id="movies" class="row">
+        </div>
     </div>
     <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025 Tu Nombre. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Nicole. Todos los derechos reservados.</p>
     </footer>
     <script>
-        const toggleLightMode = document.getElementById('toggle-light-mode');
-        const toggleDarkMode = document.getElementById('toggle-dark-mode');
-        const body = document.body;
-
-        // Establecer el fondo blanco por defecto
-        body.classList.add('bg-light');
-
-        toggleLightMode.addEventListener('click', () => {
-            body.classList.remove('bg-dark');
-            body.classList.add('bg-light');
-            body.classList.remove('text-white');
-            body.classList.add('text-dark');
-        });
-
-        toggleDarkMode.addEventListener('click', () => {
-            body.classList.add('bg-dark');
-            body.classList.remove('bg-light');
-            body.classList.add('text-white');
-            body.classList.remove('text-dark');
-        });
+        // Theme toggle functionality will be handled in main.js
     </script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
