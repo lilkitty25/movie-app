@@ -3,123 +3,192 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>movie-app</title>
   </head>
   <body>
-    <header class="bg-dark text-white d-flex justify-content-center align-items-center py-3 w-100">
-        <img src="/public/logo.png" alt="Logo" class="logo me-3" style="width: 100px; height: auto;">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Acerca de</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <button id="theme-toggle" class="btn btn-outline-light mt-2 ms-2" style="padding: 0.1rem 0.2rem; border: none; background: transparent;">
-            <!-- Sun icon (light mode) -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="theme-icon theme-icon-light">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <!-- Moon icon (dark mode) -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="theme-icon theme-icon-dark" style="display: none;">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-        </button>
+    <header
+      class="bg-dark text-white d-flex justify-content-center align-items-center py-3 w-100"
+    >
+      <img
+        src="/public/logo.png"
+        alt="Logo"
+        class="logo me-3"
+        style="width: 100px; height: auto"
+      />
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="collapse navbar-collapse" id="navbarNav"></div>
+      </nav>
+      <button
+        id="theme-toggle"
+        class="btn btn-outline-light mt-2 ms-2"
+        style="padding: 0.1rem 0.2rem; border: none; background: transparent"
+      >
+        <!-- Sun icon (light mode) -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="theme-icon theme-icon-light"
+        >
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon icon (dark mode) -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="theme-icon theme-icon-dark"
+          style="display: none"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
     </header>
     <div class="container mt-5">
-        <!-- Sección de filtros -->
-        <div class="row mb-4">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header bg-dark text-white">
-                        <h5 class="mb-0">Filtros de Películas</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4 mb-2">
-                                <label for="search-title" class="form-label">Buscar por título:</label>
-                                <input type="text" id="search-title" class="form-control" placeholder="Escribe un título...">
-                            </div>
-                            <div class="col-md-4 mb-2 date-filter-container">
-                                <label for="date-filter-btn" class="form-label">Filtrar por fecha:</label>
-                                <div class="custom-date-dropdown">
-                                    <button class="btn date-filter-btn" type="button" id="date-filter-btn">
-                                        Seleccionar filtro de fecha
-                                    </button>
-                                    <!-- Dropdown implementado como un modal -->
-                                    <div id="date-dropdown-menu" style="display: none;">
-                                        <a class="dropdown-item" href="#" data-value="">Todas las fechas</a>
-                                        <a class="dropdown-item" href="#" data-value="upcoming">Próximos estrenos</a>
-                                        <a class="dropdown-item" href="#" data-value="this-month">Este mes</a>
-                                        <a class="dropdown-item" href="#" data-value="next-month">Mes siguiente</a>
-                                        <a class="dropdown-item" href="#" data-value="this-year">Este año</a>
-                                    </div>
-                                    <input type="hidden" id="release-date-filter" value="">
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-2 sort-filter-container">
-                                <label for="sort-by-btn" class="form-label">Ordenar por:</label>
-                                <div class="custom-sort-dropdown">
-                                    <button class="btn sort-filter-btn" type="button" id="sort-by-btn">
-                                        Fecha (Más próxima)
-                                    </button>
-                                    <!-- Dropdown implementado como un modal -->
-                                    <div id="sort-dropdown-menu" style="display: none;">
-                                        <a class="dropdown-item" href="#" data-value="date-asc">Fecha (Más próxima)</a>
-                                        <a class="dropdown-item" href="#" data-value="date-desc">Fecha (Más lejana)</a>
-                                        <a class="dropdown-item" href="#" data-value="title-asc">Título (A-Z)</a>
-                                        <a class="dropdown-item" href="#" data-value="title-desc">Título (Z-A)</a>
-                                        <a class="dropdown-item" href="#" data-value="rating-desc">Puntuación (Mayor)</a>
-                                        <a class="dropdown-item" href="#" data-value="rating-asc">Puntuación (Menor)</a>
-                                    </div>
-                                    <input type="hidden" id="sort-by" value="date-asc">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12">
-                                <button id="apply-filters" class="btn btn-primary">Aplicar Filtros</button>
-                                <button id="clear-filters" class="btn btn-secondary ms-2">Limpiar Filtros</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <!-- Sección de filtros -->
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header bg-dark text-white">
+              <h5 class="mb-0">Filtros de Películas</h5>
             </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4 mb-2">
+                  <label for="search-title" class="form-label"
+                    >Buscar por título:</label
+                  >
+                  <input
+                    type="text"
+                    id="search-title"
+                    class="form-control"
+                    placeholder="Escribe un título..."
+                  />
+                </div>
+                <div class="col-md-4 mb-2 date-filter-container">
+                  <label for="date-filter-btn" class="form-label"
+                    >Filtrar por fecha:</label
+                  >
+                  <div class="custom-date-dropdown">
+                    <button
+                      class="btn date-filter-btn"
+                      type="button"
+                      id="date-filter-btn"
+                    >
+                      Seleccionar filtro de fecha
+                    </button>
+                    <!-- Dropdown implementado como un modal -->
+                    <div id="date-dropdown-menu" style="display: none">
+                      <a class="dropdown-item" href="#" data-value=""
+                        >Todas las fechas</a
+                      >
+                      <a class="dropdown-item" href="#" data-value="upcoming"
+                        >Próximos estrenos</a
+                      >
+                      <a class="dropdown-item" href="#" data-value="this-month"
+                        >Este mes</a
+                      >
+                      <a class="dropdown-item" href="#" data-value="next-month"
+                        >Mes siguiente</a
+                      >
+                      <a class="dropdown-item" href="#" data-value="this-year"
+                        >Este año</a
+                      >
+                    </div>
+                    <input type="hidden" id="release-date-filter" value="" />
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2 sort-filter-container">
+                  <label for="sort-by-btn" class="form-label"
+                    >Ordenar por:</label
+                  >
+                  <div class="custom-sort-dropdown">
+                    <button
+                      class="btn sort-filter-btn"
+                      type="button"
+                      id="sort-by-btn"
+                    >
+                      Fecha (Más próxima)
+                    </button>
+                    <!-- Dropdown implementado como un modal -->
+                    <div id="sort-dropdown-menu" style="display: none">
+                      <a class="dropdown-item" href="#" data-value="date-asc"
+                        >Fecha (Más próxima)</a
+                      >
+                      <a class="dropdown-item" href="#" data-value="date-desc"
+                        >Fecha (Más lejana)</a
+                      >
+                      <a class="dropdown-item" href="#" data-value="title-asc"
+                        >Título (A-Z)</a
+                      >
+                      <a class="dropdown-item" href="#" data-value="title-desc"
+                        >Título (Z-A)</a
+                      >
+                      <a class="dropdown-item" href="#" data-value="rating-desc"
+                        >Puntuación (Mayor)</a
+                      >
+                      <a class="dropdown-item" href="#" data-value="rating-asc"
+                        >Puntuación (Menor)</a
+                      >
+                    </div>
+                    <input type="hidden" id="sort-by" value="date-asc" />
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-12">
+                  <button id="apply-filters" class="btn btn-primary">
+                    Aplicar Filtros
+                  </button>
+                  <button id="clear-filters" class="btn btn-secondary ms-2">
+                    Limpiar Filtros
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <!-- Contador de resultados -->
-        <div id="results-count" class="alert alert-info mb-3">
-            Mostrando todas las películas
-        </div>
-        
-        <!-- Listado de películas -->
-        <div id="movies" class="row">
-        </div>
+      </div>
+
+      <!-- Contador de resultados -->
+      <div id="results-count" class="alert alert-info mb-3">
+        Mostrando todas las películas
+      </div>
+
+      <!-- Listado de películas -->
+      <div id="movies" class="row"></div>
     </div>
     <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025 Nicole. Todos los derechos reservados.</p>
+      <p>&copy; 2025 Nicole. Todos los derechos reservados.</p>
     </footer>
     <script>
-        // Theme toggle functionality will be handled in main.js
+      // Theme toggle functionality will be handled in main.js
     </script>
     <!-- Bootstrap Bundle with Popper -->
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
