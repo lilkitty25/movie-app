@@ -1,3 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import './styles.css';
+
 const apiKey = 'f6450ebcd6924ffc380648dcf77b28fb';
 let allMovies = []; // Variable global para almacenar todas las películas
 
@@ -625,37 +629,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeIconLight = document.querySelector('.theme-icon-light');
     const themeIconDark = document.querySelector('.theme-icon-dark');
     
-    // Check localStorage first
-    const savedTheme = localStorage.getItem('darkMode');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    // Check for saved theme preference or use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    let isDarkMode = false;
-    
-    // If there's a saved theme preference, use that
-    if (savedTheme !== null) {
-        isDarkMode = savedTheme === 'true';
-    } else {
-        // Otherwise, respect system preference
-        isDarkMode = prefersDarkScheme.matches;
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        document.body.classList.add('dark-mode');
+        themeIconLight.style.display = 'none';
+        themeIconDark.style.display = 'block';
     }
-    
-    // Apply initial theme
-    const body = document.body;
-    body.classList.toggle('dark-mode', isDarkMode);
-    body.classList.toggle('bg-dark', isDarkMode);
-    body.classList.toggle('bg-light', !isDarkMode);
-    body.classList.toggle('text-white', isDarkMode);
-    body.classList.toggle('text-dark', !isDarkMode);
-    
-    // Set container and cards
-    document.querySelector('.container')?.classList.toggle('dark-mode', isDarkMode);
-    document.querySelectorAll('.card').forEach(card => {
-        card.classList.toggle('dark-mode', isDarkMode);
-    });
-    
-    // Set initial icon state
-    themeIconLight.style.display = isDarkMode ? 'none' : 'block';
-    themeIconDark.style.display = isDarkMode ? 'block' : 'none';
     
     // Add click event listener
     themeToggleBtn.addEventListener('click', toggleTheme);
